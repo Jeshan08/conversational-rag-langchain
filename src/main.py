@@ -30,15 +30,15 @@ def main():
 
     answer = rag_chain.invoke(
       {
-        "question": question,
+        "input": question,
         "chat_history" : chat_history
       }
     )
     # appending history with every question
     chat_history.append(HumanMessage(content=question))
-    chat_history.append(AIMessage(content=answer))
+    chat_history.append(AIMessage(content=answer['answer']))
 
-    print(f"Answer: {answer}\n")
+    print(f"Answer: {answer['answer']}\n")
 
 if __name__ == "__main__":
   main()
